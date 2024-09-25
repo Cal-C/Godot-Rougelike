@@ -1,0 +1,28 @@
+[gd_resource type="Resource" script_class="EntityDefinition" load_steps=8 format=3 uid="uid://cy37m5dwiwsh3"]
+
+[ext_resource type="Script" path="res://src/Entities/Actors/Components/ComponentDefinitions/fighter_component_definition.gd" id="1_klrbe"]
+[ext_resource type="Script" path="res://src/Entities/entity_definition.gd" id="1_wh7o1"]
+[ext_resource type="Texture2D" uid="uid://b1a4o2gg8mp26" path="res://assets/images/DawnLike/Characters/Player0.png" id="3_m4i0f"]
+[ext_resource type="Texture2D" uid="uid://w3arwdc2wci1" path="res://assets/images/DawnLike/Characters/Player1.png" id="4_5aqpm"]
+
+[sub_resource type="Resource" id="Resource_p81xu"]
+script = ExtResource("1_klrbe")
+max_hp = 0
+power = 0
+defense = 0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ri0d2"]
+atlas = ExtResource("3_m4i0f")
+region = Rect2(16, 48, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_0ghmy"]
+atlas = ExtResource("4_5aqpm")
+region = Rect2(16, 48, 16, 16)
+
+[resource]
+script = ExtResource("1_wh7o1")
+name = "Player"
+textures = Array[Texture]([SubResource("AtlasTexture_ri0d2"), SubResource("AtlasTexture_0ghmy")])
+is_blocking_movement = true
+fighter_definition = SubResource("Resource_p81xu")
+ai_type = 0

@@ -1,0 +1,35 @@
+[gd_resource type="Resource" script_class="EntityDefinition" load_steps=9 format=3 uid="uid://bu61lgx1dnx1t"]
+
+[ext_resource type="Script" path="res://src/Entities/Actors/Components/ComponentDefinitions/fighter_component_definition.gd" id="1_8iy73"]
+[ext_resource type="Script" path="res://src/Entities/entity_definition.gd" id="1_tw0ti"]
+[ext_resource type="Texture2D" uid="uid://c7jdwsbl1synh" path="res://assets/images/DeepDive/Humanoid Asset Pack [16x16]/Basic Asset Pack/Basic Humanoid Animations/goblin fanatic/GoblinFanatic.png" id="3_vbn5h"]
+
+[sub_resource type="Resource" id="Resource_xx2bd"]
+script = ExtResource("1_8iy73")
+max_hp = 0
+power = 0
+defense = 0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g17gh"]
+atlas = ExtResource("3_vbn5h")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_doanc"]
+atlas = ExtResource("3_vbn5h")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_njrbq"]
+atlas = ExtResource("3_vbn5h")
+region = Rect2(32, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4vovw"]
+atlas = ExtResource("3_vbn5h")
+region = Rect2(48, 0, 16, 16)
+
+[resource]
+script = ExtResource("1_tw0ti")
+name = "Troll"
+textures = Array[Texture]([SubResource("AtlasTexture_g17gh"), SubResource("AtlasTexture_doanc"), SubResource("AtlasTexture_njrbq"), SubResource("AtlasTexture_4vovw")])
+is_blocking_movement = true
+fighter_definition = SubResource("Resource_xx2bd")
+ai_type = 1
