@@ -1,14 +1,25 @@
-[gd_resource type="Resource" script_class="EntityDefinition" load_steps=9 format=3 uid="uid://dmflnnlraf68o"]
+[gd_resource type="Resource" script_class="EntityDefinition" load_steps=13 format=3 uid="uid://dmflnnlraf68o"]
 
 [ext_resource type="Script" path="res://src/Entities/Actors/Components/ComponentDefinitions/fighter_component_definition.gd" id="1_bjkuk"]
+[ext_resource type="Texture2D" uid="uid://uptec2mljm83" path="res://assets/images/DawnLike/Objects/Decor0.png" id="1_gxbx4"]
 [ext_resource type="Script" path="res://src/Entities/entity_definition.gd" id="2_6y22f"]
+[ext_resource type="Texture2D" uid="uid://xcjkcdl2xuwp" path="res://assets/images/DawnLike/Objects/Decor1.png" id="2_b5g05"]
 [ext_resource type="Texture2D" uid="uid://l0atrppfuens" path="res://assets/images/DeepDive/Humanoid Asset Pack [16x16]/Basic Asset Pack/Basic Humanoid Animations/goblin fighter/GoblinFighter.png" id="3_ajyex"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rpp8l"]
+atlas = ExtResource("1_gxbx4")
+region = Rect2(0, 272, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_w1215"]
+atlas = ExtResource("2_b5g05")
+region = Rect2(0, 272, 16, 16)
 
 [sub_resource type="Resource" id="Resource_kbfvk"]
 script = ExtResource("1_bjkuk")
 max_hp = 16
 power = 4
 defense = 1
+death_frames = Array[Texture]([SubResource("AtlasTexture_rpp8l"), SubResource("AtlasTexture_w1215")])
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_u4fbc"]
 atlas = ExtResource("3_ajyex")

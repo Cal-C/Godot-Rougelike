@@ -18,21 +18,21 @@ func set_entity_type(entity_definition: EntityDefinition) -> void:
 	# Create a new SpriteFrames resource
 	var new_sprite_frames = SpriteFrames.new()
 
-	# Create a new animation called "default"
-	new_sprite_frames.add_animation("default")
+	# Create a new animation called "idle"
+	new_sprite_frames.add_animation("idle")
 
-	# Add each texture from the entity definition as a frame in the "default" animation
+	# Add each texture from the entity definition as a frame in the "idle" animation
 	for texture in entity_definition.textures:
 		if texture:
-			new_sprite_frames.add_frame("default", texture)
+			new_sprite_frames.add_frame("idle", texture)
 		else:
 			push_error("Texture is null in entity definition")
 
 	# Assign the new sprite frames to the animated sprite
 	self.frames = new_sprite_frames
 	
-	# Play the "default" animation
-	self.play("default")
+	# Play the "idle" animation
+	self.play("idle")
 	
 	blocks_movement = _definition.is_blocking_movement
 	entity_name = _definition.name
@@ -74,3 +74,27 @@ func get_entity_name() -> String:
 
 func is_alive() -> bool: #the living dead are "alive" too.
 	return ai_component != null
+
+# New method to set textures
+func set_textures(textures: Array[AtlasTexture]) -> void:
+	# Create a new SpriteFrames resource
+	var new_sprite_frames = SpriteFrames.new()
+
+	# Create a new animation called "idle"
+	new_sprite_frames.add_animation("idle")
+
+	# Add each texture as a frame in the "idle" animation
+	for texture in textures:
+		if texture:
+			new_sprite_frames.add_frame("idle", texture)
+		else:
+			push_error("Texture is null in the provided array")
+
+	# Assign the new sprite frames to the animated sprite
+	self.frames = new_sprite_frames
+	
+	# Play the "idle" animation
+	self.play("idle")
+	
+	# Debug print to verify the setup
+	print("Textures set with %d frames" % new_sprite_frames.get_frame_count("default"))
