@@ -7,6 +7,8 @@ var fighter_component: FighterComponent
 var ai_component: BaseAIComponent
 
 var _definition: EntityDefinition
+var entity_name: String
+var blocks_movement: bool
 var map_data: MapData
 
 func set_entity_type(entity_definition: EntityDefinition) -> void:
@@ -31,6 +33,9 @@ func set_entity_type(entity_definition: EntityDefinition) -> void:
 	
 	# Play the "default" animation
 	self.play("default")
+	
+	blocks_movement = _definition.is_blocking_movement
+	entity_name = _definition.name
 	
 	match entity_definition.ai_type:
 		AIType.HOSTILE:
@@ -61,7 +66,11 @@ func move(move_offset: Vector2i) -> void:
 		grid_position += move_offset
 
 func is_blocking_movement() -> bool:
-	return _definition.is_blocking_movement
+	return blocks_movement
+
 
 func get_entity_name() -> String:
-	return _definition.name
+	return entity_name
+
+func is_alive() -> bool: #the living dead are "alive" too.
+	return ai_component != null

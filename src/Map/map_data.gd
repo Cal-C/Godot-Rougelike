@@ -88,3 +88,17 @@ func register_blocking_entity(entity: Entity) -> void:
 
 func unregister_blocking_entity(entity: Entity) -> void:
 	pathfinder.set_point_weight_scale(entity.grid_position, 0)
+
+func get_actors() -> Array[Entity]:
+	var actors: Array[Entity] = []
+	for entity in entities:
+		if entity.is_alive():
+			actors.append(entity)
+	return actors
+
+
+func get_actor_at_location(location: Vector2i) -> Entity:
+	for actor in get_actors():
+		if actor.grid_position == location:
+			return actor
+	return null

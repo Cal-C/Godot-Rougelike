@@ -1,0 +1,29 @@
+[gd_resource type="Resource" script_class="EntityDefinition" load_steps=8 format=3 uid="uid://btdhhn2qksody"]
+
+[ext_resource type="Script" path="res://src/Entities/entity_definition.gd" id="1_cuhvo"]
+[ext_resource type="Script" path="res://src/Entities/Actors/Components/ComponentDefinitions/fighter_component_definition.gd" id="1_r6qbq"]
+[ext_resource type="Texture2D" uid="uid://uptec2mljm83" path="res://assets/images/DawnLike/Objects/Decor0.png" id="2_tcgf6"]
+[ext_resource type="Texture2D" uid="uid://xcjkcdl2xuwp" path="res://assets/images/DawnLike/Objects/Decor1.png" id="3_jkpol"]
+
+[sub_resource type="Resource" id="Resource_lbkir"]
+script = ExtResource("1_r6qbq")
+max_hp = 0
+power = 0
+defense = 0
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_kom0a"]
+atlas = ExtResource("2_tcgf6")
+region = Rect2(16, 208, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hes02"]
+atlas = ExtResource("3_jkpol")
+region = Rect2(16, 208, 16, 16)
+
+[resource]
+resource_name = "Corpse"
+script = ExtResource("1_cuhvo")
+name = "Corpse"
+textures = Array[Texture]([SubResource("AtlasTexture_kom0a"), SubResource("AtlasTexture_hes02")])
+is_blocking_movement = false
+fighter_definition = SubResource("Resource_lbkir")
+ai_type = 0

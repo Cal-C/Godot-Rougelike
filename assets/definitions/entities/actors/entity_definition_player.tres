@@ -7,9 +7,9 @@
 
 [sub_resource type="Resource" id="Resource_p81xu"]
 script = ExtResource("1_klrbe")
-max_hp = 0
-power = 0
-defense = 0
+max_hp = 100
+power = 5
+defense = 1
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ri0d2"]
 atlas = ExtResource("3_m4i0f")

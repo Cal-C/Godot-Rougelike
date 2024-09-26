@@ -12,11 +12,12 @@ extends Node
 
 @export_category("Monsters RNG")
 @export var max_monsters_per_room = 3
+@export var min_monsters_per_room = 1
 
 
 const entity_types = {
-	"orc": preload("res://assets/definitions/entities/actors/entity_definition_orc.tres"),
-	"troll": preload("res://assets/definitions/entities/actors/entity_definition_troll.tres"),
+	"orc": preload("res://assets/definitions/entities/actors/entity_definition_goblin_fanatic.tres"),
+	"troll": preload("res://assets/definitions/entities/actors/entity_definition_goblin_fighter.tres"),
 }
 
 
@@ -63,7 +64,7 @@ func generate_dungeon(player: Entity) -> MapData:
 	return dungeon
 
 func _place_entities(dungeon: MapData, room: Rect2i) -> void:
-	var number_of_monsters: int = _rng.randi_range(0, max_monsters_per_room)
+	var number_of_monsters: int = _rng.randi_range(min_monsters_per_room, max_monsters_per_room)
 	
 	for _i in number_of_monsters:
 		var x: int = _rng.randi_range(room.position.x + 1, room.end.x - 1)
