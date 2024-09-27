@@ -11,10 +11,18 @@ var entity_name: String
 var blocks_movement: bool
 var map_data: MapData
 
+enum EntityType {CORPSE, ITEM, ACTOR}
+
+var type: EntityType:
+	set(value):
+		type = value
+		z_index = type
+
 func set_entity_type(entity_definition: EntityDefinition) -> void:
 	# Sets base variables and adds components based on the entity definition
 	_definition = entity_definition
-	
+	type = _definition.type
+
 	# Create a new SpriteFrames resource
 	var new_sprite_frames = SpriteFrames.new()
 
@@ -43,7 +51,6 @@ func set_entity_type(entity_definition: EntityDefinition) -> void:
 			add_child(ai_component)
 	
 	if entity_definition.fighter_definition:
-		set_z_index(1) #objects 0 tiles -1 entities 1
 		fighter_component = FighterComponent.new(entity_definition.fighter_definition)
 		add_child(fighter_component)
 
@@ -74,4 +81,4 @@ func get_entity_name() -> String:
 	return entity_name
 
 func is_alive() -> bool: #the living dead are "alive" too.
-	return ai_component != null
+	return ai_component != null or entity_name == "Player"

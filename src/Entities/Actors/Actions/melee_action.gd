@@ -5,6 +5,7 @@ extends ActionWithDirection
 func perform() -> void:
 	var target: Entity = get_target_actor()
 	if not target:
+		print("No target to attack for %s" % entity.get_entity_name())
 		return
 	
 	var damage: int = entity.fighter_component.power - target.fighter_component.defense

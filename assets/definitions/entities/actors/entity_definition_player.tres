@@ -35,5 +35,6 @@ script = ExtResource("1_wh7o1")
 name = "Player"
 textures = Array[Texture]([SubResource("AtlasTexture_ri0d2"), SubResource("AtlasTexture_0ghmy")])
 is_blocking_movement = true
+type = 2
 fighter_definition = SubResource("Resource_p81xu")
 ai_type = 0

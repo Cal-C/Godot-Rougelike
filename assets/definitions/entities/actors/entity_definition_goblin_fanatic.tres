@@ -39,8 +39,9 @@ region = Rect2(48, 0, 16, 16)
 
 [resource]
 script = ExtResource("1_tw0ti")
-name = "Troll"
+name = "Goblin Fanatic"
 textures = Array[Texture]([SubResource("AtlasTexture_g17gh"), SubResource("AtlasTexture_doanc"), SubResource("AtlasTexture_njrbq"), SubResource("AtlasTexture_4vovw")])
 is_blocking_movement = true
+type = 2
 fighter_definition = SubResource("Resource_xx2bd")
 ai_type = 1

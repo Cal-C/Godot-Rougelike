@@ -40,6 +40,7 @@ func die() -> void:
 	
 	if get_map_data().player == entity:
 		death_message = "You died!"
+		SignalBus.player_died.emit()
 	else:
 		death_message = "%s is dead!" % entity.get_entity_name()
 	
@@ -49,13 +50,14 @@ func die() -> void:
 	#entity.set_textures(death_frames)
 	entity.frames = death_sprite
 	entity.play("dead")
-	entity.set_z_index(0)
 
 	# Modify the entity properties
-	entity.ai_component.queue_free()
-	entity.ai_component = null
+	if entity.ai_component:
+		entity.ai_component.queue_free()
+		entity.ai_component = null
 	entity.entity_name = "Remains of %s" % entity.entity_name
 	entity.blocks_movement = false
 	
 	# Unregister the entity from the map data
 	get_map_data().unregister_blocking_entity(entity)
+	entity.type = Entity.EntityType.CORPSE
