@@ -10,7 +10,7 @@ region = Rect2(16, 272, 16, 16)
 [resource]
 script = ExtResource("1_sdg6b")
 texture = SubResource("AtlasTexture_otvip")
-color_lit = Color(0.855292, 0.73106, 0.342971, 1)
-color_dark = Color(0.421894, 0.34971, 0.118552, 1)
+color_lit = Color(0.616926, 0.517304, 0.196902, 1)
+color_dark = Color(0.166011, 0.13241, 0.0261407, 1)
 is_walkable = true
 is_transparent = true
