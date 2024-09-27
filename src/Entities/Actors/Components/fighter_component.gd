@@ -48,11 +48,12 @@ func die() -> void:
 	# Pass the AtlasTexture array directly to set_textures
 	#entity.set_textures(death_frames)
 	entity.frames = death_sprite
-	
+	entity.play("dead")
+	entity.set_z_index(0)
+
 	# Modify the entity properties
-	if entity.has_node("AIComponent"):
-		entity.get_node("AIComponent").queue_free()
-		entity.remove_child(entity.get_node("AIComponent"))
+	entity.ai_component.queue_free()
+	entity.ai_component = null
 	entity.entity_name = "Remains of %s" % entity.entity_name
 	entity.blocks_movement = false
 	
