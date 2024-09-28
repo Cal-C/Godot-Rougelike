@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=3 uid="uid://co6xc24syraec"]
+[gd_scene load_steps=20 format=3 uid="uid://co6xc24syraec"]
 
 [ext_resource type="Script" path="res://src/Game/game.gd" id="1_5o3c7"]
 [ext_resource type="Script" path="res://src/Game/EventHandlers/input_handler.gd" id="2_6wb2d"]
@@ -10,7 +10,8 @@
 [ext_resource type="Texture2D" uid="uid://cb46by1h6ylgv" path="res://assets/images/DawnLike/GUI/GUI0.png" id="8_v17fp"]
 [ext_resource type="StyleBox" uid="uid://bec0q83uwjfxo" path="res://assets/Sprites/DawnLike/Ui/BarBox.tres" id="9_87pp7"]
 [ext_resource type="Script" path="res://src/GUI/hp_display.gd" id="9_pispc"]
-[ext_resource type="FontFile" uid="uid://7hbwq2llv4bt" path="res://assets/fonts/Kenney Pixel.ttf" id="10_qwpqx"]
+[ext_resource type="FontFile" uid="uid://ctubhn2ncg43o" path="res://assets/images/DawnLike/GUI/SDS_8x8.ttf" id="10_mgyoe"]
+[ext_resource type="Script" path="res://src/GUI/message_log.gd" id="12_ra2px"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fbv3y"]
 atlas = ExtResource("8_v17fp")
@@ -27,8 +28,8 @@ texture_margin_right = 4.0
 texture_margin_bottom = 4.0
 
 [sub_resource type="LabelSettings" id="LabelSettings_ep5m3"]
-font = ExtResource("10_qwpqx")
-font_size = 41
+font = ExtResource("10_mgyoe")
+font_size = 18
 outline_size = 4
 outline_color = Color(0, 0, 0, 1)
 
@@ -85,7 +86,7 @@ stretch = true
 disable_3d = true
 handle_input_locally = false
 canvas_item_default_texture_filter = 0
-size = Vector2i(1152, 536)
+size = Vector2i(1152, 495)
 render_target_update_mode = 4
 
 [node name="Game" type="Node2D" parent="VBoxContainer/SubViewportContainer/SubViewport"]
@@ -124,6 +125,7 @@ zoom = Vector2(2, 2)
 [node name="InfoBar" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
+size_flags_stretch_ratio = 1.5
 theme_override_constants/separation = 0
 
 [node name="StatsPanel" type="PanelContainer" parent="VBoxContainer/InfoBar"]
@@ -158,5 +160,15 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 2.0
 theme_override_styles/panel = SubResource("StyleBoxTexture_k5x42")
+
+[node name="MessageLog" type="ScrollContainer" parent="VBoxContainer/InfoBar/MessagesPanel"]
+layout_mode = 2
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 3
+script = ExtResource("12_ra2px")
+
+[node name="MessageList" type="VBoxContainer" parent="VBoxContainer/InfoBar/MessagesPanel/MessageLog"]
+layout_mode = 2
+size_flags_horizontal = 3
 
 [connection signal="player_created" from="VBoxContainer/SubViewportContainer/SubViewport/Game" to="VBoxContainer/InfoBar/StatsPanel/VBoxContainer/HpDisplay" method="initialize"]
