@@ -1,11 +1,15 @@
 class_name FighterComponent
 extends Component
 
+signal hp_changed(hp, max_hp)
+
+
 #statblock
 var max_hp: int
 var hp: int:
 	set(value):
 		hp = clampi(value, 0, max_hp)
+		hp_changed.emit(hp, max_hp)
 		if hp <= 0:
 			die()
 var defense: int

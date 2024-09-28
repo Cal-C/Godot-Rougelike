@@ -1,0 +1,14 @@
+[gd_resource type="StyleBoxTexture" load_steps=3 format=3 uid="uid://bec0q83uwjfxo"]
+
+[ext_resource type="Texture2D" uid="uid://cb46by1h6ylgv" path="res://assets/images/DawnLike/GUI/GUI0.png" id="1_ftoos"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hdfmj"]
+atlas = ExtResource("1_ftoos")
+region = Rect2(96, 0, 48, 16)
+
+[resource]
+texture = SubResource("AtlasTexture_hdfmj")
+expand_margin_left = 17.0
+expand_margin_top = 20.0
+expand_margin_right = 16.0
+expand_margin_bottom = 22.0
