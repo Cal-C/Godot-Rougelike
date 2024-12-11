@@ -2,10 +2,10 @@ class_name MeleeAction
 extends ActionWithDirection
 
 
-func perform() -> void:
+func perform() -> bool:
 	var target: Entity = get_target_actor()
 	if not target:
-		return
+		return false
 	
 	var damage: int = entity.fighter_component.power - target.fighter_component.defense
 	var attack_color: Color
@@ -21,3 +21,4 @@ func perform() -> void:
 	else:
 		attack_description += " but does no damage."
 		MessageLog.send_message(attack_description, attack_color)
+	return true
