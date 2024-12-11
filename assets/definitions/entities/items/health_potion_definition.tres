@@ -1,0 +1,23 @@
+[gd_resource type="Resource" script_class="EntityDefinition" load_steps=6 format=3 uid="uid://oisfsbggwwac"]
+
+[ext_resource type="Script" path="res://src/Entities/Actors/Components/healing_consumable_component_definition.gd" id="1_08as1"]
+[ext_resource type="Script" path="res://src/Entities/entity_definition.gd" id="1_yvhqh"]
+[ext_resource type="Texture2D" uid="uid://n33fh10fdvhe" path="res://assets/images/DawnLike/Items/Potion.png" id="2_usr4l"]
+
+[sub_resource type="Resource" id="Resource_fn2ak"]
+script = ExtResource("1_08as1")
+healing_amount = 4
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_l3cd0"]
+atlas = ExtResource("2_usr4l")
+region = Rect2(0, 0, 16, 16)
+
+[resource]
+script = ExtResource("1_yvhqh")
+name = "Heath Potion"
+textures = Array[Texture]([SubResource("AtlasTexture_l3cd0")])
+is_blocking_movement = false
+type = 1
+ai_type = 0
+consumable_definition = SubResource("Resource_fn2ak")
+inventory_capacity = 0

@@ -14,10 +14,15 @@ extends Node
 @export var max_monsters_per_room = 3
 @export var min_monsters_per_room = 1
 
+@export_category("Items RNG")
+@export var max_items_per_room = 2
+@export var min_items_per_room = 1
+
 
 const entity_types = {
 	"orc": preload("res://assets/definitions/entities/actors/entity_definition_goblin_fanatic.tres"),
 	"troll": preload("res://assets/definitions/entities/actors/entity_definition_goblin_fighter.tres"),
+	"health_potion": preload("res://assets/definitions/entities/items/health_potion_definition.tres"),
 }
 
 
@@ -83,6 +88,22 @@ func _place_entities(dungeon: MapData, room: Rect2i) -> void:
 				new_entity = Entity.new(dungeon, new_entity_position, entity_types.orc)
 			else:
 				new_entity = Entity.new(dungeon, new_entity_position, entity_types.troll)
+			dungeon.entities.append(new_entity)
+
+	var number_of_items: int = _rng.randi_range(min_items_per_room, max_items_per_room)
+	for _i in number_of_items:
+		var x: int = _rng.randi_range(room.position.x + 1, room.end.x - 1)
+		var y: int = _rng.randi_range(room.position.y + 1, room.end.y - 1)
+		var new_entity_position := Vector2i(x, y)
+		
+		var can_place = true
+		for entity in dungeon.entities:
+			if entity.grid_position == new_entity_position:
+				can_place = false
+				break
+		
+		if can_place:
+			var new_entity: Entity = Entity.new(dungeon, new_entity_position, entity_types.health_potion)
 			dungeon.entities.append(new_entity)
 
 

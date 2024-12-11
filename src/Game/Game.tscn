@@ -114,11 +114,6 @@ script = ExtResource("3_a4ovr")
 
 [node name="DungeonGenerator" type="Node" parent="VBoxContainer/SubViewportContainer/SubViewport/Game/Map"]
 script = ExtResource("4_vf4xy")
-map_width = 100
-map_height = 50
-max_rooms = null
-room_max_size = 5
-room_min_size = 10
 
 [node name="FieldOfView" type="Node" parent="VBoxContainer/SubViewportContainer/SubViewport/Game/Map"]
 script = ExtResource("5_ttkcj")

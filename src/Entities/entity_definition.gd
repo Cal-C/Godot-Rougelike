@@ -9,6 +9,8 @@ extends Resource
 @export var is_blocking_movement: bool = true
 @export var type: Entity.EntityType = Entity.EntityType.ACTOR
 
-@export_category("Defintions and types")
+@export_category("Components")
 @export var fighter_definition: FighterComponentDefinition
 @export var ai_type: Entity.AIType
+@export var consumable_definition: ConsumableComponentDefinition
+@export var inventory_capacity: int = 0
